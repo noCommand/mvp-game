@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">My Application</string>
+    <string name="winner">Winner</string>
+    <string name="set_default">Default</string>
+</resources>
