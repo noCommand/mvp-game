@@ -17,20 +17,9 @@ import haeilcho.android.com.myapplication.presenter.FindNumPresenter;
 public class FindNumActivity extends AppCompatActivity implements FindNumView {
     private static final String TAG = FindNumView.class.getName();
 
-    /** MVP 장점                      **특징 - Model과 View의 결합도를 낮추는데 초점
-     *  View의 코드가 짧아진다.
-     *  ---------------------------------------------------------
-     *  Android Test를 해볼 수 있다.
-     *  Presenter를 통해 데이터가 잘 받아져왔는지 검증과정도 추가할 수 있음
-     *  View에 대한 테스트도 만들어 볼 수 있음
-     *  --> TDD(Test-Driven development)
-     *
-     */
-
     /********* 과정 1
      *  View에서 이벤트 발생, Present에 넘김
      */
-    //인터페이스를 작성한다.
 
     private ViewGroup buttonGrid;
     private View winnerPlayerViewGroup;
@@ -45,7 +34,6 @@ public class FindNumActivity extends AppCompatActivity implements FindNumView {
         winnerPlayerViewGroup = findViewById(R.id.winnerPlayerViewGroup);
         buttonGrid = (ViewGroup) findViewById(R.id.buttonGrid);
         presenter.onCreate();
-        //presenter은 무언가를 표시하는 방법을 지시하는 대신에 표시할 내용만 전달합니다.
     }
 
     @Override
@@ -117,6 +105,7 @@ public class FindNumActivity extends AppCompatActivity implements FindNumView {
             ((Button) buttonGrid.getChildAt(i)).setText("");
         }
     }
+
 
     @Override
     public void showWinner(String winningPlayerDisplayLabel) {

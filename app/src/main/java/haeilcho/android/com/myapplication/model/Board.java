@@ -1,5 +1,7 @@
 package haeilcho.android.com.myapplication.model;
 
+import java.util.Random;
+
 import static haeilcho.android.com.myapplication.model.Player.X;
 
 /**
@@ -17,6 +19,8 @@ public class Board {
 
     private Cell[][] cells = new Cell[4][4];
 
+
+
     private Player winner;
     private GameState state;
     private Player currentTurn;
@@ -24,15 +28,50 @@ public class Board {
     private enum GameState { IN_PROGRESS, FINISHED };
 
     public Board() {
-        restart();
+        setCellNum();
+        //restart();
     }
 
     public void restart(){
+
         clearCells();
         winner = null;
         currentTurn = X;
         state = GameState.IN_PROGRESS;
     }
+
+    public int[] setCellNum(){
+        int cellNum[] = new int[16];
+        int randomA[] = setRandomNum();
+        int randomB[] = setRandomNum();
+
+        for(int cellIndex = 0; cellIndex < 16; cellIndex++){
+            if(cellIndex < 8) {
+                cellNum[cellIndex] = randomA[cellIndex];
+            }
+            if(cellIndex >= 8){
+                cellNum[cellIndex] = randomB[cellIndex-8];
+            }
+        }
+        return cellNum;
+    }
+
+    public int[] setRandomNum(){
+        int halfNum[] = new int[8];
+        Random r = new Random();
+        for(int i=0;i<=7;i++)
+        {
+            halfNum[i] = r.nextInt(8)+1;
+            for(int j=0;j<i;j++)
+            {
+                if(halfNum[i]==halfNum[j])
+                {
+                    i--;
+                }
+            }
+        }
+        return halfNum;
+    };
 
     public Player mark( int row, int col ) {
 

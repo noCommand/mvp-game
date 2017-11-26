@@ -35,7 +35,6 @@ public class FindNumPresenter implements Presenter {
     @Override
     public void onCreate() {
         model = new Board();
-        //board 생성
     }
 
     @Override
