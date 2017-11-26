@@ -34,7 +34,6 @@ public class FindNumActivity extends AppCompatActivity implements FindNumView {
 
     private ViewGroup buttonGrid;
     private View winnerPlayerViewGroup;
-    private TextView winnerPlayerLabel;
 
     FindNumPresenter presenter = new FindNumPresenter(this);
     //이쪽의 view를 presenter로 넘겨준다
@@ -43,7 +42,6 @@ public class FindNumActivity extends AppCompatActivity implements FindNumView {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        winnerPlayerLabel = (TextView) findViewById(R.id.winnerPlayerLabel);
         winnerPlayerViewGroup = findViewById(R.id.winnerPlayerViewGroup);
         buttonGrid = (ViewGroup) findViewById(R.id.buttonGrid);
         presenter.onCreate();
@@ -122,20 +120,19 @@ public class FindNumActivity extends AppCompatActivity implements FindNumView {
 
     @Override
     public void showWinner(String winningPlayerDisplayLabel) {
-        winnerPlayerLabel.setText(winningPlayerDisplayLabel);
         winnerPlayerViewGroup.setVisibility(View.VISIBLE);
     }
 
     @Override
     public void clearWinnerDisplay() {
         winnerPlayerViewGroup.setVisibility(View.GONE);
-        winnerPlayerLabel.setText("");
     }
 
     /** presenter로 넘겨줄때
      *  onCreate -> 생성할 때
-     *  pause resume destroy
-     *
+     *  pause resume destroy ->아는데로
+     *  onOptionsItemSelected 초기화를 눌렀을 때 presenter에서 정의된 행동을 취해라 (reset)
+     *  onCellClicked 버튼을 누르게 되면 칼럼 위치를 presenter로 (각각 칸을 누르게 되면)
      */
 
 

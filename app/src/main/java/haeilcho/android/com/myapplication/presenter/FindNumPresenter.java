@@ -55,7 +55,7 @@ public class FindNumPresenter implements Presenter {
 
     public void onButtonSelected(int row, int col) {
         Player playerThatMoved = model.mark(row, col);
-
+        //mark해라 라는것만 model에서 가지고와서 사용한다.
         if(playerThatMoved != null) {
             view.setButtonText(row, col, playerThatMoved.toString());
 

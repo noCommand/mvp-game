@@ -82,8 +82,8 @@ public class Board {
         } else if( isCellValueAlreadySet(row, col) ) {
             return false;
         } else {
-            return true;
         }
+        return true;
     }
 
     private boolean isOutOfBounds(int idx) {
