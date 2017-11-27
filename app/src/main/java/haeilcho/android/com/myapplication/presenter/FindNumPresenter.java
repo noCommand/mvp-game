@@ -1,7 +1,6 @@
 package haeilcho.android.com.myapplication.presenter;
 
 import haeilcho.android.com.myapplication.model.Board;
-import haeilcho.android.com.myapplication.model.Player;
 import haeilcho.android.com.myapplication.view.FindNumView;
 
 /**
@@ -53,15 +52,11 @@ public class FindNumPresenter implements Presenter {
     }
 
     public void onButtonSelected(int row, int col) {
-        Player playerThatMoved = model.mark(row, col);
-        //mark해라 라는것만 model에서 가지고와서 사용한다.
-        if(playerThatMoved != null) {
-            view.setButtonText(row, col, playerThatMoved.toString());
 
-            if (model.getWinner() != null) {
-                view.showWinner(playerThatMoved.toString());
-            }
-        }
+        model.mark(row, col);
+        //mark해라 라는것만 model에서 가지고와서 사용한다
+        //표시할 내용만 전달이니까
+
     }
 
     public void onResetSelected() {
@@ -69,6 +64,4 @@ public class FindNumPresenter implements Presenter {
         view.clearButtons();
         model.restart();
     }
-
-
 }

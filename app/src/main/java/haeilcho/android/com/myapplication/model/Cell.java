@@ -6,14 +6,17 @@ package haeilcho.android.com.myapplication.model;
 
 public class Cell {
 
-    private Player value;
+    private Open value;
 
-    public Player getValue() {
+    public Cell(){
+        value = Open.X;
+    }
+
+    public Open getValue() {
         return value;
     }
 
-    public void setValue(Player value) {
+    public void setValue(Open value) {
         this.value = value;
     }
-
 }
