@@ -9,6 +9,11 @@ import java.util.Random;
 
 public class Board {
 
+    /**
+     *  처음부터 세세하게 구현하려고하지말고 간단한거부터 구현하자!!!
+     *  일단 누르면 번호들 다 뜨는거부터 구현하자
+     */
+
     //데이터+상태(?)+비즈니스로직
     //데이터, 로직인건 알겠는데 상태?
 
@@ -31,11 +36,24 @@ public class Board {
     }
 
     public void restart(){
-        int cellNum[] = setCellNum();
+        setCellNum();
         state = GameState.IN_PROGRESS;
     }
 
-    public int[] setCellNum(){
+    public void setCellNum(){
+        Cell[][] cell = new Cell[4][4];
+        int randomArray[] = setArrayNum().clone();
+        int num = 0;
+        for(int i = 0; i < 4; i ++){
+            for(int j = 0; j < 4; j++){
+                cell[i][j] = new Cell();
+                cell[i][j].setNumValue(randomArray[num++]);
+                System.out.println("cellTest "+ cell[i][j].getNumValue());
+            }
+        }
+    }
+
+    public int[] setArrayNum(){
         int cellNum[] = new int[16];
         int randomA[] = setRandomNum();
         int randomB[] = setRandomNum();
@@ -78,8 +96,8 @@ public class Board {
     public void mark( int row, int col ) {
 
         if(isValid(row, col)) {
-            if(cells[row][col].getValue()==Open.X){
-                cells[row][col].setValue(Open.O);
+            if(cells[row][col].getOpenValue()==Open.X){
+                cells[row][col].setOpenValue(Open.O);
 //                if(isValueEmpty()){
 //                    compare.compareEach();
 //                }

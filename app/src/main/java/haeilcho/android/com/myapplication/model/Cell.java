@@ -6,17 +6,23 @@ package haeilcho.android.com.myapplication.model;
 
 public class Cell {
 
-    private Open value;
+    private Open openValue;
+
+    private int numValue;
 
     public Cell(){
-        value = Open.X;
+        openValue = Open.X;
     }
 
-    public Open getValue() {
-        return value;
+    public Open getOpenValue() {
+        return openValue;
     }
 
-    public void setValue(Open value) {
-        this.value = value;
+    public void setOpenValue(Open openValue) {
+        this.openValue = openValue;
     }
+
+    public int getNumValue(){ return numValue;}
+
+    public void setNumValue(int numValue){ this.numValue = numValue;}
 }

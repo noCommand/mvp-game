@@ -2,11 +2,9 @@ package haeilcho.android.com.myapplication;
 
 import org.junit.Test;
 
-import java.util.Arrays;
-
 import haeilcho.android.com.myapplication.model.Board;
+import haeilcho.android.com.myapplication.model.Cell;
 
-import static org.junit.Assert.*;
 import static org.hamcrest.core.Is.is;
 
 /**
@@ -17,18 +15,34 @@ import static org.hamcrest.core.Is.is;
 public class ExampleUnitTest {
     private Board board;
 
+
+
+
     @Test
-    public void setCelltest(){
+    public void setCellTest(){
+
+        Cell[][] cells = new Cell[4][4];
+
+        board = new Board();
+
+        for(int i = 0; i < 4; i ++){
+            for(int j = 0; j < 4; j++){
+                System.out.printf(Integer.toString(cells[i][j].getNumValue()));
+            }
+        }
+    }
+
+    public void setArrayTest(){
         board = new Board();
         int result[] =
-                board.setCellNum();
+                board.setArrayNum();
 
         for(int i = 0; i < 16; i++){
             System.out.printf(Integer.toString(result[i]));
         }
     }
 
-    public void setRandomtest(){
+    public void setRandomTest(){
         board = new Board();
         int result[] =
                 board.setRandomNum().clone();

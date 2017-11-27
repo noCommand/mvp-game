@@ -1,15 +1,11 @@
 package haeilcho.android.com.myapplication;
 
-import android.content.Context;
-import android.support.test.InstrumentationRegistry;
 import android.support.test.runner.AndroidJUnit4;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
 import haeilcho.android.com.myapplication.model.Board;
-
-import static org.junit.Assert.*;
 
 /**
  * Instrumentation test, which will execute on an Android device.
@@ -24,7 +20,7 @@ public class ExampleInstrumentedTest {
     public void test(){
         int result[] = new int[16];
         for(int i = 0; i < 16; i++){
-            result[i] = board.setCellNum()[i];
+            result[i] = board.setArrayNum()[i];
         }
     }
 
